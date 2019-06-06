@@ -3,11 +3,9 @@
 window.onload = load;
 
 function load() {
-  console.log("a");
   var infoElement = document.getElementById("info");
   var GIE = generateInfoElement;
   var BI = getBrowserInfo();
-  console.log(BI);
 
   getInternetInfo(function (err, data) {
     if (err) {
