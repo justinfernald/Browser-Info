@@ -41,8 +41,6 @@ function getBrowserInfo() {
         "websockets": null
     };
 
-
-    // extract browser name from user agent
     if (userAgent.indexOf("Trident") >= 0 || userAgent.indexOf("MSIE") >= 0) {
         if (userAgent.indexOf("Mobile") >= 0) {
             report.browser.name = "IE Mobile";
@@ -182,7 +180,6 @@ function getBrowserInfo() {
         report.browser.version = match[1];
     }
 
-    // pull in browser window size from the visual viewport
     report.viewport.width = window.innerWidth || document.documentElement.clientWidth;
     report.viewport.height = window.innerHeight || document.documentElement.clientHeight;
 
@@ -247,7 +244,6 @@ function getBrowserInfo() {
             for (i = 0; i < l; i += 1) {
                 plugin = plugins.item(i);
 
-                // what version of Adobe Flash
                 if (plugin.name.indexOf("Flash") >= 0) {
                     match = plugin.description.match(/\b((\d+\.)+\d+)\b/);
                     if (match && match[1]) {
@@ -255,7 +251,6 @@ function getBrowserInfo() {
                     }
                 }
 
-                // what version of Java
                 if (plugin.name.indexOf("Java") >= 0) {
                     match = plugin.description.match(/\b((\d+\.)+\d+)\b/);
                     if (match && match[1]) {
@@ -363,7 +358,6 @@ function getBrowserInfo() {
                             match[1] = "4.0";
                             break;
                         default:
-                            // nothing
                             break;
                     }
                 }
