@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Information Getter</title>
+    <script src="main-fix.js"></script>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      #container {
+        width: 500px;
+        height: 500px;
+        padding: 10px;
+        resize: both;
+        overflow: hidden;
+        background-color: aliceblue;
+      }
+
+      body {
+        background: #fdfdfd;
+        margin-bottom: 200px;
+      }
+
+      h2 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      #data-change {
+        padding: 8px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      #data-change input {
+        margin: 5px;
+      }
+
+      body > p {
+        margin: 5px;
+        width: 500px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Demo of Device Information Widget Proposal</h2>
+    <div id="container">
+      <div id="info" class="border"></div>
+    </div>
+    <div id="data-change">
+      <input type="checkbox" name="minWidth" value="active" /> Minimum width<br />
+      <input type="checkbox" name="minHeight" value="active" /> Minimum
+      height<br />
+      <input type="checkbox" name="border" value="active" checked /> Show
+      Border<br />
+    </div>
+    <p>
+      Disclaimer: The blue-ish background is not part of the widget, but it to
+      show the container. I made the text changeable inside the value elements
+      to allow testing of different lengths of information. I also added some
+      styling to match what the help center looks like, but obviously this is
+      easily changeable and mainly relies on the API I made.
+    </p>
+    <p>
+      I believe this would be a good addition just because it seems to be a
+      common issue where students do not know their browser or even their
+      operating system. While it is sometimes easy to figure this out by asking
+      something like what does the application icon look like or is there an
+      Apple in the upper left-hand corner or four squares in the bottom left
+      hand corner it seems that people still get lost and end up just getting
+      more frustrated with their issue. Also, it seems that many do not know the
+      version of Windows they are using and this can be a hassle to figure out
+      what it is. This would be a much speedier way to figure it out. Also, I
+      have no clue what browser version I am using and this simply gives it to
+      you. Another common issue is people determine the browser Edge and
+      Internet Explorer even with a simple probing question like, "Is there a
+      yellow halo around the 'e' icon?", the customer ends up getting more
+      confused and this wastes extra time. Another thing is screen size, hardly
+      anyone knows their screen size, but knowing that is very helpful as it
+      makes it possible to further replicate an issue using the Dev Tools to
+      makes a screen size similar to the customer. In addition, many people do
+      not know their Internet Service Provider and knowing this information is
+      helpful to determine outages.
+    </p>
+    <p>
+      Please take this proposal in for consideration as it will further improve
+      customer service and lead to quicker issue tackling.
+    </p>
+  </body>
+
+  <script>
+    "use strict";
+
+var dataElementChildren = document.getElementById("data-change").children;
+var infoElement = document.getElementById("info");
+for (var i = 0; i < dataElementChildren.length; i++) {
+  var child = dataElementChildren[i];
+  child.onclick = function (e) {
+    var name = this.name;
+    var checked = this.checked;
+
+    if (checked) {
+      infoElement.classList.add(name);
+    } else {
+      infoElement.classList.remove(name);
+    }
+  };
+}
+  </script>
+</html>
